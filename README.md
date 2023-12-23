@@ -10,6 +10,8 @@
 - Firebase Setup
 - Deploy to Firebase
 - Create Sign up
+- Implement sign in
+- Set up Redux store
 
 # Features
 - Login/Sign up Page
