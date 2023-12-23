@@ -1,6 +1,8 @@
 import Header from "./Header";
 import React, { useState ,useRef} from 'react'
 import { checkIfDataValid } from "../utils/validate";
+import { auth } from "../utils/firebase";
+import { createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
 const Login=()=>{
 
     const [isSignInForm, setIsSignInForm]=useState(true);
@@ -13,9 +15,40 @@ const Login=()=>{
       {setErrorMessage("Please tell us your name");
       return;
     }
-      
-      const error=checkIfDataValid(email.current.value,password.current.value);
+     const error=checkIfDataValid(email.current.value,password.current.value);
       setErrorMessage(error);
+      if(error)
+      return;
+      if(!isSignInForm )
+      {
+//sign up logic
+createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorCode +"-"+errorMessage);
+    console.log(errorCode +"-"+errorMessage);
+  });
+      }
+      else{
+        signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          if(errorCode.endsWith("invalid-credential"))
+          setErrorMessage("User Not Found");
+        });
+      }
     }
     const toggleSignInForm=(e)=>{
        
