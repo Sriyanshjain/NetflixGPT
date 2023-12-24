@@ -12,6 +12,8 @@
 - Create Sign up
 - Implement sign in
 - Set up Redux store
+- Implemented Sign out
+- Update profile with sign up
 
 # Features
 - Login/Sign up Page
