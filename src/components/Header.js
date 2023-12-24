@@ -1,20 +1,37 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ChevronDownIcon,ChevronUpIcon } from "@heroicons/react/24/solid";
-import {  signOut } from "firebase/auth";
+import {  onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { addUser, removeUser } from "../utils/userSlice";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const navigate= useNavigate();
+  const dispatch=useDispatch();
   const handleSignOut=()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
-      navigate("/")
+
     }).catch((error) => {
       // An error happened.
       navigate("/error")
     });
   }
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {uid,email,displayName}=user;
+        dispatch(addUser({uid:uid,email:email,displayName:displayName}));
+        navigate("/browse")
+        // ...
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/")
+      }
+    });
+  },[])
   return (
     <div className="flex justify-between w-full bg-black bg-opacity-50">
       <img

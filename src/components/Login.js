@@ -4,7 +4,6 @@ import { checkIfDataValid } from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 const Login=()=>{
 
@@ -14,7 +13,6 @@ const Login=()=>{
     const email=useRef(null);
     const password= useRef(null);
     const dispatch=useDispatch();
-    const navigate= useNavigate();
     const handleButtonClick=()=>{
       if(!isSignInForm && name.current.value=="")
       {setErrorMessage("Please tell us your name");
@@ -37,7 +35,6 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
       // Profile updated!
       const {uid,email,displayName}=auth.currentUser;
       dispatch(addUser({uid:uid,email:email,displayName:displayName}));
-      navigate("/browse")
       // ...
     }).catch((error) => {
       // An error occurred
@@ -60,8 +57,6 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          navigate("/browse")
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
