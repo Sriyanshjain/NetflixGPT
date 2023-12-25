@@ -14,6 +14,20 @@
 - Set up Redux store
 - Implemented Sign out
 - Update profile with sign up
+- Sign up user displayName
+- BugFix: if the user is not logged in redirect /browse to login page and vice-versa
+- BugFix: Unsubscribe to onAuthStateChanged callback
+- Add constants file
+- Register for TMDB API
+- Get data from the TMDB now playing movies list API
+- custom hook for Now playing movies
+- Create MovieSlice
+- Update movie data in store
+- Planning for main and secondary container
+- fetch data for trailer
+- Update store with trailer video
+- Embedded Youtube video
+
 
 # Features
 - Login/Sign up Page

@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
 import { useDispatch } from "react-redux";
+import { NETFLIX_BG } from "../utils/constants";
 const Login=()=>{
 
     const [isSignInForm, setIsSignInForm]=useState(true);
@@ -73,10 +74,11 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
         setIsSignInForm(prev=>!prev);
     };
 return <div>
-  <div className='bg-black bg-opacity-50  '>
-        <img className="absolute " src="https://assets.nflxext.com/ffe/siteui/vlv3/563192ea-ac0e-4906-a865-ba9899ffafad/6b2842d1-2339-4f08-84f6-148e9fcbe01b/IN-en-20231218-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="netflix bg" />
+   <Header/>
+  <div className='absolute '>
+        <img className="h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
         </div>
-    <Header/>
+   
     <form onSubmit={(e)=>e.preventDefault()}className='absolute rounded-md mx-auto my-auto top-1/4  left-0 right-0 bg-black bg-opacity-80 px-16 text-white w-3/12'>
                <p className='text-4xl pt-8 pb-4 mt-4 mb-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
                {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full' />}
