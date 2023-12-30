@@ -11,10 +11,9 @@ export const API_OPTIONS= {
     path: '/3/movie/now_playing?language=en-US&page=1',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzYwOTA0ZWI1YTJkNzc4ZDExNDNkZGExNDE2NzVlZCIsInN1YiI6IjY1ODdkOWM1Njg4Y2QwNThmZTgzZmNjMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fcdpNLV7zx5mQomQWjjZpB4rcZCvrrhVOxHSGkBbKbE'
+      Authorization: 'Bearer '+process.env.REACT_APP_TMDB_API_KEY
     }
   };
 
 export const TMDB_CDN_URL = "https://image.tmdb.org/t/p/"
 
-export const OPENAI_KEY="e69c02c06a0a486fb07a421281c1ab3b"
