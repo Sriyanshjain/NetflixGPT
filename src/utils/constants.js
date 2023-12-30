@@ -16,3 +16,5 @@ export const API_OPTIONS= {
   };
 
 export const TMDB_CDN_URL = "https://image.tmdb.org/t/p/"
+
+export const OPENAI_KEY="e69c02c06a0a486fb07a421281c1ab3b"

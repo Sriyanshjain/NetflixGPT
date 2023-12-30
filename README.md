@@ -27,6 +27,8 @@
 - fetch data for trailer
 - Update store with trailer video
 - Embedded Youtube video
+- Integrating azure open ai
+-
 
 
 # Features

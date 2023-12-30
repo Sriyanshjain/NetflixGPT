@@ -3,7 +3,7 @@ import MovieCard from './MovieCard'
 import { svgArray } from '../utils/svgsExport';
 
 const TopRated = ({title,movies}) => {
-    console.log(movies);
+
     const topRated= movies?.length>10?movies.slice(0,10):movies
    
   return (

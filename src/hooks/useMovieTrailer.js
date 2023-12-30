@@ -14,7 +14,7 @@ const getMovieTrailer=async()=>{
     const trailerList= json.results.filter((video)=>video?.type==="Trailer");
     const trailer= trailerList?.length>0?trailerList[0]:json.results[0];
     dispatch(addTrailerVideo(trailer));
-    console.log(json.results);
+
 }
 }
 

@@ -42,7 +42,7 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
       // ...
     });
     
-    console.log(user);
+
   })
   .catch((error) => {
     const errorCode = error.code;
