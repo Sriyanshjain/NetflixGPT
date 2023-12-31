@@ -1,6 +1,7 @@
 import React from 'react'
 import GptSearchBar from './GptSearchBar';
 import GptMovieSuggestions from './GptMovieSuggestions';
+import Footer from './Footer';
 
 const GptSearch = () => {
   return (
@@ -11,6 +12,7 @@ const GptSearch = () => {
       <GptSearchBar/>
       </div>
       <GptMovieSuggestions/>
+      <Footer/>
     </div>
   )
 }
