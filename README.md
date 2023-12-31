@@ -27,8 +27,14 @@
 - fetch data for trailer
 - Update store with trailer video
 - Embedded Youtube video
+- Fetch upcoming,nowplaying, popular movies
 - Integrating azure open ai
--
+- fetched GPT movie suggestion from TMDb
+- Reused movie list component 
+- Memoization
+- Added .env file 
+- Footer
+- Making website responsive 
 
 
 # Features

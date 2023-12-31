@@ -8,6 +8,7 @@ import useUpcomingMovies from '../hooks/useUpcomingMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import GptSearch from './GptSearch';
 import { useSelector } from 'react-redux'
+import Footer from './Footer'
 
 
 
@@ -19,13 +20,13 @@ const Browse = () => {
   useTopRatedMovies();
   
   return (
-    <div>
+    <div className='font-sans'>
       <Header/>
       {
         showGptSearch?<GptSearch/>:<><MainContainer/>
         <SecondaryContainer/></>
       }
-      
+      <Footer/>
       
     </div>
   )

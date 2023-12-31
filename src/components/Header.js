@@ -44,12 +44,12 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className=" px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row justify-between backdrop-blur-xl md:backdrop-blur-none fixed top-0 w-full">
+    <div className=" px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row md:justify-between backdrop-blur-xl md:backdrop-blur-none fixed top-0 w-full">
       <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={NETFLIX_LOGO} alt="logo"  onClick={()=>navigate("/")}/>
       {user && (
-        <div className="flex  p-2 mr-4 ">
+        <div className="flex flex-row p-2 md:mr-4 mx-auto ">
           <div
-            className="flex cursor-pointer p-2 m-2 gap-2"
+            className="flex cursor-pointer justify-center md:justify-around p-2 m-2 gap-2"
             onClick={handleGptSearchClick}
           >{
             showGptSearch?<><ChevronLeftIcon className="h-6 w-6 text-white block mt-1 " /><p className="text-white text-lg">Back to home</p></>:<><MagnifyingGlassIcon className="h-6 w-6 text-white block mt-1 " />
@@ -59,7 +59,7 @@ const Header = () => {
           </div>
           <div className="relative inline-block group ml-2 cursor-pointer">
             <div
-              className="flex justify-around transition duration-300"
+              className="flex justify-center md:justify-around transition duration-300"
               onClick={() => setShowSignOut((prev) => !prev)}
             >
               <img

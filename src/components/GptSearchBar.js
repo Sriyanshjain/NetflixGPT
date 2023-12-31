@@ -66,11 +66,11 @@ const handleGptSearchClick = async () => {
         <input
           ref={searchText}
           placeholder="What would you like to watch today ?"
-          className="bg-neutral-800 rounded-lg py-6 px-3 col-span-7 mr-1 outline-none text-white "
+          className="bg-neutral-800 rounded-lg md:py-6 md:px-3 px-4 py-4 col-span-7 mr-1 outline-none text-white "
           onChange={()=>setErrorMessage(null)}
         />
         <button
-          className="bg-red-600 text-white p-4 rounded-lg ml-1 col-span-2 font-bold "
+          className="bg-red-600 text-white md:p-4 rounded-lg ml-1 col-span-2 font-bold md:text-xl text-sm "
           onClick={handleGptSearchClick}
         >
           Search

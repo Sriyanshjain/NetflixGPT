@@ -8,7 +8,7 @@ const TopRated = ({title,movies}) => {
    
   return (
     <div className='px-6'>
-        <h1 className='text-3xl py-4 text-white'>{title}</h1>
+        <h1 className='text-xl md:text-3xl py-4 text-white'>{title}</h1>
         <div className='flex overflow-x-scroll example'>
         
         

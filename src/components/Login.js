@@ -79,7 +79,7 @@ return <div>
         <img className="h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
         </div>
    
-    <form onSubmit={(e)=>e.preventDefault()}className='absolute rounded-md mx-auto my-auto top-1/4  left-0 right-0 bg-black bg-opacity-80 px-16 text-white w-3/12'>
+    <form onSubmit={(e)=>e.preventDefault()}className='absolute rounded-md mx-auto my-auto top-1/4  left-0 right-0 bg-black bg-opacity-80 px-16 text-white w-10/12 md:w-3/12'>
                <p className='text-4xl pt-8 pb-4 mt-4 mb-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
                {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full' />}
                 <input type="text" placeholder='Email address' ref={email} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full' />
