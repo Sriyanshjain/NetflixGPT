@@ -16,7 +16,7 @@ const TopRated = ({title,movies}) => {
         
         {<div className='flex  '>
             
-                {topRated?.map((movie,i)=><div className='flex h-max'><div className={(i==9?'w-32':'w-20')}>{svgArray[i]}</div><MovieCard key={movie.id} posterPath={movie.poster_path}/></div>)}
+                {topRated?.map((movie,i)=><div className='flex h-max' key={movie.id}><div className={(i==9?'w-32':'w-20')}>{svgArray[i]}</div><MovieCard  movieId={movie.id} posterPath={movie.poster_path}/></div>)}
             
           
         </div>}

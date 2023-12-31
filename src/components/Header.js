@@ -48,6 +48,7 @@ const Header = () => {
       <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={NETFLIX_LOGO} alt="logo"  onClick={()=>navigate("/")}/>
       {user && (
         <div className="flex flex-row p-2 md:mr-4 mx-auto ">
+          <div className=' cursor-pointer p-2 m-2 text-white text-lg'><a target='_blank' href='https://github.com/Sriyanshjain' className=''>About</a></div>
           <div
             className="flex cursor-pointer justify-center md:justify-around p-2 m-2 gap-2"
             onClick={handleGptSearchClick}
