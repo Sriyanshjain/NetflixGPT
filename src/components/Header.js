@@ -53,7 +53,7 @@ const Header = () => {
             className="flex cursor-pointer justify-center md:justify-around p-2 m-2 gap-2"
             onClick={handleGptSearchClick}
           >{
-            showGptSearch?<><ChevronLeftIcon className="h-6 w-6 text-white block mt-1 " /><p className="text-white text-sm sm:text-lg">Back to home</p></>:<><MagnifyingGlassIcon className="h-6 w-6 text-white block mt-1 " />
+            showGptSearch?<><ChevronLeftIcon className="h-4 w-4 sm:h-6 sm:w-6 text-white block mt-1 " /><p className="text-white text-sm sm:text-lg">Back to home</p></>:<><MagnifyingGlassIcon className="h-4 w-4 sm:h-6 sm:w-6 text-white block mt-1 " />
             <p className="text-white text-sm sm:text-lg">Search</p></>
           }
             
@@ -71,9 +71,9 @@ const Header = () => {
               />
               <div className="mt-4">
                 {showSignOut ? (
-                  <ChevronDownIcon className="h-6 w-6 text-white block " />
+                  <ChevronDownIcon className="h-4 w-4 sm:h-6 sm:w-6 text-white block " />
                 ) : (
-                  <ChevronUpIcon className="h-6 w-6 text-white " />
+                  <ChevronUpIcon className="h-4 w-4 sm:h-6 sm:w-6 text-white " />
                 )}
               </div>
             </div>
