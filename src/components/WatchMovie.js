@@ -12,7 +12,7 @@ const WatchMovie = () => {
 
     
       return (
-        <div>
+        <div className='h-screen'>
             <div className='bg-black  w-full p-4'>
             <div
             className=" cursor-pointer mt-4"
