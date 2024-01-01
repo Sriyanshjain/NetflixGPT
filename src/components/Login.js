@@ -82,11 +82,11 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
 return <div>
    <Header/>
   <div className='absolute '>
-        <img className="h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
+        <img className="min-h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
         </div>
    
     <form onSubmit={(e)=>e.preventDefault()}className='absolute rounded-md mx-auto my-auto top-28 sm:top-1/4  left-0 right-0 bg-black bg-opacity-80 px-10 sm:px-16 text-white w-10/12 sm:w-5/12 xl:w-3/12 '>
-               <p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-8 pb-4 mt-4 mb-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
+               <p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-8 pb-4 my-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
                {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md text-xs sm:text-sm md:text-lg lg:text-xl p-4 w-full' />}
                 <input type="text" placeholder={isSignInForm?'Email address':"Enter email"} ref={email} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
                 <input type="password" placeholder={isSignInForm?'Password':"Set password"}ref={password} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
