@@ -3,9 +3,9 @@ export const checkIfDataValid=(email,password)=>{
     const passwordValid= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
 
     if(!emailValid)
-    return "Email not valid"
+    return "Please enter a valid email"
     if(!passwordValid)
-    return "Password not valid"
+    return "Choose a stronger password"
 
     return null;
 
