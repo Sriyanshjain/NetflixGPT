@@ -48,13 +48,13 @@ const Header = () => {
       <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={NETFLIX_LOGO} alt="logo"  onClick={()=>navigate("/")}/>
       {user && (
         <div className="flex flex-row p-2 md:mr-4 mx-auto ">
-          <div className=' cursor-pointer p-2 m-2 text-white text-lg'><a target='_blank' href='https://github.com/Sriyanshjain' className=''>About</a></div>
+          <div className=' cursor-pointer p-2 m-2 text-white text-sm sm:text-lg'><a target='_blank' href='https://github.com/Sriyanshjain' className=''>About</a></div>
           <div
             className="flex cursor-pointer justify-center md:justify-around p-2 m-2 gap-2"
             onClick={handleGptSearchClick}
           >{
-            showGptSearch?<><ChevronLeftIcon className="h-6 w-6 text-white block mt-1 " /><p className="text-white text-lg">Back to home</p></>:<><MagnifyingGlassIcon className="h-6 w-6 text-white block mt-1 " />
-            <p className="text-white text-lg">Search</p></>
+            showGptSearch?<><ChevronLeftIcon className="h-6 w-6 text-white block mt-1 " /><p className="text-white text-sm sm:text-lg">Back to home</p></>:<><MagnifyingGlassIcon className="h-6 w-6 text-white block mt-1 " />
+            <p className="text-white text-sm sm:text-lg">Search</p></>
           }
             
           </div>
@@ -64,7 +64,7 @@ const Header = () => {
               onClick={() => setShowSignOut((prev) => !prev)}
             >
               <img
-                className="p-2 w-16 h-16 "
+                className="p-2 w-12 h-12 sm:w-16 sm:h-16 "
                 src={USER_AVATAR}
                 alt="Use avatar"
                 
@@ -78,9 +78,9 @@ const Header = () => {
               </div>
             </div>
             {showSignOut && (
-              <div className="bg-black rounded-md absolute cursor-pointer text-white p-3 mt-4">
+              <div className="bg-black rounded-md absolute w-20 sm:w-24 cursor-pointer text-white p-3 mt-4">
                 <ul>
-                  <li onClick={handleSignOut}>Sign out</li>
+                  <li className="text-sm sm:text-lg " onClick={handleSignOut}>Sign out</li>
                 </ul>
               </div>
             )}

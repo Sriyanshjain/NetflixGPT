@@ -6,7 +6,6 @@ import useMovieWatch from '../hooks/useMovieWatch';
 
 const WatchMovie = () => {
     const { movieId } = useParams();
-    console.log(movieId)
     useMovieWatch(movieId);
     const youtubeKey=useSelector((store)=>store.movies?.watchMovie);
     
