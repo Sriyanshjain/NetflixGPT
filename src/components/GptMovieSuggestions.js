@@ -9,7 +9,7 @@ const GptMovieSuggestions = () => {
     <div className=' min-h-screen bg-[#0c132c]'>
         {gptMovies && <div className='mx-2 mt-2 p-2 '>
         {
-            gptMovies.map((movie,index)=><MovieList key={movie.id} title={movie} movies={TmdbMoviesFromGpt[index]}/>)
+            gptMovies.map((movie,index)=><MovieList key={movie} title={movie} movies={TmdbMoviesFromGpt[index]}/>)
         }
         </div>}
         

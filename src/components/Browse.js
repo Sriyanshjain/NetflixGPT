@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
 import MainContainer from './MainContainer'
@@ -14,14 +14,18 @@ import Footer from './Footer'
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[showGptSearch])
   useNowPlayingMovies();
   usePopularMovies();
   useUpcomingMovies();
-  useTopRatedMovies();
+  useTopRatedMovies(); 
+
   
   return (
     <div className='font-sans'>
-      <Header/>
+     
       {
         showGptSearch?<GptSearch/>:<><MainContainer/>
         <SecondaryContainer/><Footer/></>

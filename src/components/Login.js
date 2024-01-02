@@ -19,7 +19,7 @@ const Login=()=>{
       {setErrorMessage("Please tell us your name");
       return;
     }
-    const error=checkIfDataValid(email.current.value,password.current.value);
+    const error=checkIfDataValid(email.current.value,password.current.value,isSignInForm);
     setErrorMessage(error);
     if(error)
     {
@@ -80,7 +80,7 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
         setIsSignInForm(prev=>!prev);
     };
 return <div>
-   <Header/>
+  <Header/>
   <div className='absolute '>
         <img className="min-h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
         </div>

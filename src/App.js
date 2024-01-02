@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App transition-all duration-300 ease-in-out">
       <Provider store={appStore}>
+       
       <Body className=""/>
       </Provider>
       

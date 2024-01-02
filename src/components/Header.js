@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronUpIcon,ChevronLeftIcon } from "@heroicons/react
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_AVATAR } from "../utils/constants";
@@ -13,6 +13,7 @@ const Header = () => {
   const user = useSelector((store) => store.user);
   const {showGptSearch} = useSelector((store) => store.gpt);
   const [showSignOut, setShowSignOut] = useState(false);
+  const {pathname}=useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSignOut = () => {
@@ -34,6 +35,7 @@ const Header = () => {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
         navigate("/browse");
+      
         // ...
       } else {
         // User is signed out
@@ -44,6 +46,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
+    <div className={pathname.startsWith("/movie")?"hidden":"block"}>
     <div className=" px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row md:justify-between backdrop-blur-xl md:backdrop-blur-none fixed top-0 w-full">
       <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={NETFLIX_LOGO} alt="logo"  onClick={()=>navigate("/")}/>
       {user && (
@@ -87,6 +90,7 @@ const Header = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };
