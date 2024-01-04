@@ -11,27 +11,40 @@ const Login=()=>{
     const [isSignInForm, setIsSignInForm]=useState(true);
     const [errorMessage,setErrorMessage]=useState(null);
     const name= useRef(null);
-    const email=useRef(null);
-    const password= useRef(null);
+    const emailSignIn=useRef(null);
+    const emailSignUp=useRef(null);
+    const passwordSignIn= useRef(null);
+    const passwordSignUp= useRef(null);
     const dispatch=useDispatch();
     const handleButtonClick=()=>{
       if(!isSignInForm && name.current.value=="")
       {setErrorMessage("Please tell us your name");
       return;
     }
-    const error=checkIfDataValid(email.current.value,password.current.value,isSignInForm);
+    if(!isSignInForm )
+    {const error=checkIfDataValid(emailSignUp.current.value,passwordSignUp.current.value,isSignInForm);
+      setErrorMessage(error);
+      if(error)
+    {
+      return;
+    }
+  }
+  else{
+    const error=checkIfDataValid(emailSignIn.current.value,passwordSignIn.current.value,isSignInForm);
     setErrorMessage(error);
     if(error)
     {
       return;
     }
+  }
+    
     
      
       if(!isSignInForm )
       {
      
 //sign up logic
-createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+createUserWithEmailAndPassword(auth, emailSignUp.current.value, passwordSignUp.current.value)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -60,7 +73,7 @@ createUserWithEmailAndPassword(auth, email.current.value, password.current.value
   });
       }
       else{
-        signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        signInWithEmailAndPassword(auth, emailSignIn.current.value, passwordSignIn.current.value)
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
@@ -89,15 +102,15 @@ return <div>
                <p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-8 pb-4 my-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
                {!isSignInForm?
                 <>
-                <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md text-xs sm:text-sm md:text-lg lg:text-xl p-4 w-full' />
-                <input type="text" placeholder="Enter email" ref={email}  className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
-                <input type="password" placeholder="Set password"ref={password} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
+                <input type="text" placeholder='Name' ref={name} key="name" className='m-2 bg-zinc-800 outline-none rounded-md text-xs sm:text-sm md:text-lg lg:text-xl p-4 w-full' />
+                <input type="text" placeholder='Email address' key="emailSignIn"   ref={ emailSignUp}  className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
+                <input type="password" placeholder='Password'key="passSignIn"  ref={passwordSignUp}   className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
                 <p className="text-xs text-zinc-600  p-4 inline-block">Choose a password with a combination of capital,small alphabets and special characters.</p>
                 </>:
                 <>
                 
-                <input type="text" placeholder='Email address' ref={email}  defaultValue={"abcd@gmail.com"} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
-                <input type="password" placeholder='Password'ref={password} defaultValue={"Abcd@273"} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
+                <input type="text" placeholder='Email address' key="emailSignUp" ref={emailSignIn} defaultValue={"abcd@gmail.com"} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
+                <input type="password" placeholder='Password' key="passSignUp" ref={passwordSignIn}  defaultValue={"Abcd@273"} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
                 
                 </>
                }
