@@ -85,13 +85,24 @@ return <div>
         <img className="min-h-screen w-screen object-cover" src={NETFLIX_BG} alt="netflix bg" />
         </div>
    
-    <form onSubmit={(e)=>e.preventDefault()}className='absolute rounded-md mx-auto my-auto top-28 sm:top-1/4  left-0 right-0 bg-black bg-opacity-80 px-10 sm:px-16 text-white w-10/12 sm:w-5/12 xl:w-3/12 '>
+    <form onSubmit={(e)=>e.preventDefault()} className='absolute rounded-md mx-auto my-auto top-28 sm:top-1/4  left-0 right-0 bg-black bg-opacity-80 px-10 sm:px-16 text-white w-10/12 sm:w-5/12 xl:w-3/12 '>
                <p className='text-xl sm:text-2xl md:text-3xl lg:text-4xl pt-8 pb-4 my-3 font-bold '>{isSignInForm?"Sign in":"Sign up"}</p>
-               {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md text-xs sm:text-sm md:text-lg lg:text-xl p-4 w-full' />}
-                <input type="text" placeholder={isSignInForm?'Email address':"Enter email"} ref={email} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
-                <input type="password" placeholder={isSignInForm?'Password':"Set password"}ref={password} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
-                <p className={ isSignInForm?"hidden":"text-xs text-zinc-600  p-4 inline-block"}>Choose a password with a combination of capital,small alphabets and special characters.</p>
-                { errorMessage && <p className="text-md text-red-800 m-2 p-2">{errorMessage}</p>}
+               {!isSignInForm?
+                <>
+                <input type="text" placeholder='Name' ref={name} className='m-2 bg-zinc-800 outline-none rounded-md text-xs sm:text-sm md:text-lg lg:text-xl p-4 w-full' />
+                <input type="text" placeholder="Enter email" ref={email}  className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
+                <input type="password" placeholder="Set password"ref={password} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
+                <p className="text-xs text-zinc-600  p-4 inline-block">Choose a password with a combination of capital,small alphabets and special characters.</p>
+                </>:
+                <>
+                
+                <input type="text" placeholder='Email address' ref={email}  defaultValue={"abcd@gmail.com"} className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl' />
+                <input type="password" placeholder='Password'ref={password} defaultValue={"Abcd@273"} className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs sm:text-sm md:text-lg lg:text-xl ' />
+                
+                </>
+               }
+   
+                { errorMessage && <p className="text-md text-red-800 m-2 p-2">{errorMessage}</p>} 
                 <button className="rounded-md bg-red-600 m-2 mt-3 sm:mt-4 w-full p-4" onClick={handleButtonClick} >{isSignInForm?"Sign in":"Sign up"}</button>
                 <p className=' pt-8 pb-4 sm:mt-3  px-2 cursor-pointer text-xs sm:text-sm md:text-lg lg:text-xl' onClick={toggleSignInForm}><span className='text-gray-400'>{isSignInForm?"New to Netflix?":"Already a user?"} </span>{isSignInForm?"Sign up now!":"Sign in"} </p>
             </form>
