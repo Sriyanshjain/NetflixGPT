@@ -117,7 +117,7 @@ return <div>
    
                 { errorMessage && <p className="text-md text-red-800 m-2 p-2">{errorMessage}</p>} 
                 <button className="rounded-md bg-red-600 m-2 mt-3 sm:mt-4 w-full p-4" onClick={handleButtonClick} >{isSignInForm?"Sign in":"Sign up"}</button>
-                <p className=' pt-8 pb-4 sm:mt-3  px-2 cursor-pointer text-xs sm:text-sm md:text-lg lg:text-xl' onClick={toggleSignInForm}><span className='text-gray-400'>{isSignInForm?"New to Netflix?":"Already a user?"} </span>{isSignInForm?"Sign up now!":"Sign in"} </p>
+                <p className=' pt-8 pb-4 sm:mt-3  px-2 cursor-pointer text-xs sm:text-sm md:text-lg lg:text-xl' onClick={toggleSignInForm}><span className='text-gray-400'>{isSignInForm?"New to Funflix?":"Already a user?"} </span>{isSignInForm?"Sign up now!":"Sign in"} </p>
             </form>
 </div>
 }
