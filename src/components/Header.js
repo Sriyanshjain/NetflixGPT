@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_AVATAR } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-
+import netflixlogo from "../../public/netflix.png";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const {showGptSearch} = useSelector((store) => store.gpt);
@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <div className={pathname.startsWith("/movie")?"hidden":"block"}>
     <div className=" px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row md:justify-between backdrop-blur-xl md:backdrop-blur-none fixed top-0 w-full">
-      <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={NETFLIX_LOGO} alt="logo"  onClick={()=>navigate("/")}/>
+      <img className="w-44 mx-auto md:mx-0 cursor-pointer" src={netflixlogo} alt="logo"  onClick={()=>navigate("/")}/>
       {user && (
         <div className="flex flex-row p-2 md:mr-4 mx-auto ">
           <div className=' cursor-pointer p-2 m-2 text-white text-sm sm:text-lg'><a target='_blank' href='https://github.com/Sriyanshjain' className=''>About</a></div>
