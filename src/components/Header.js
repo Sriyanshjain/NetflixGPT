@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_AVATAR } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-import netflixlogo from "../../public/netflix.png";
+import netflixlogo from "../utils/netflix.png";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const {showGptSearch} = useSelector((store) => store.gpt);
