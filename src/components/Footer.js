@@ -1,5 +1,5 @@
 import React from 'react'
-import { NETFLIX_LOGO } from '../utils/constants'
+import NETFLIX_LOGO  from '../utils/netflix.png';
 import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
